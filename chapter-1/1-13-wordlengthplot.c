@@ -6,14 +6,14 @@
 int main(int argc, char const *argv[])
 {
     int c, wc, state, wlen;
-    int testwhite, i;
+    int testpunctuation, i;
     state = OUT;
     wc = wlen = 0;
 
     while((c = getchar()) != EOF)
     {
-        testwhite = (c == ' ' || c == '\t' || c == '\n');
-        if(state == OUT && !testwhite)
+        testpunctuation = (c == ' ' || c == '\t' || c == '\n' || c == '.' || c == ',' || c == '/');
+        if(state == OUT && !testpunctuation)
         {
             wlen = 0;
             ++wc;
@@ -21,18 +21,18 @@ int main(int argc, char const *argv[])
             if(wc == 1)
                 putchar('\n');
         }
-        if(state == IN && !testwhite)
+        if(state == IN && !testpunctuation)
         {
             putchar(c);
             ++wlen;
         }
-        if(state == IN && testwhite)
+        if(state == IN && testpunctuation)
         {
             state = OUT;
-            printf("%c\n", c);
+            putchar('\n');
             for(i = 0; i < wlen; ++i)
-                printf("#");
-            printf("\n");
+                putchar('#');
+            putchar('\n');
         }
     }
 
