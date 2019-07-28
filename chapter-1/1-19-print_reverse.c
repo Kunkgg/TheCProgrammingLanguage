@@ -67,7 +67,7 @@ char* reverse(char line[], int len)
 {
     int i, t;
 
-    for(i = len-1; i > (len - 1)/2; --i)
+    for(i = len-1; i >= len / 2; --i)
     {
         t = line[i];
         line[i] = line[len-2-i];
