@@ -4,6 +4,9 @@
 // Harder if you compute them: determine the ranges of the various
 // floating-point types.
 
+// The constants about value ranges are copied from system file
+// /usr/include/limits.h
+
 
 #include <stdio.h>
 
